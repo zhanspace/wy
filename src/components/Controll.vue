@@ -4,11 +4,11 @@
             <div class="header">1. 设定地理数据</div>
             <div class="formItem">
                 <label>地图行数</label>
-                <n-input-number placeholder="" :show-button="false" v-model:value="row" />
+                <n-input-number placeholder="" :max="6" v-model:value="row" />
             </div>
             <div class="formItem">
                 <label>地图列数</label>
-                <n-input-number placeholder="" :show-button="false" v-model:value="col" />
+                <n-input-number placeholder="" :max="6" v-model:value="col" />
             </div>
             <div class="formBtn">
                 <n-button @click="genGeos">生成随机地图数据</n-button>
@@ -18,7 +18,7 @@
             <div class="header">2. 设定业务数据</div>
             <div class="formItem">
                 <label>剥麻机数量</label>
-                <n-input-number placeholder="" :show-button="false" v-model:value="machine" />
+                <n-input-number placeholder="" :max="3" v-model:value="machine" />
             </div>
             <div class="formItem">
                 <label>田地到机器能耗系数</label>
@@ -72,7 +72,7 @@ export default {
             for (let i = 0; i < this.row; i ++) {
                 const row = []
                 for (let j = 0; j < this.col; j ++) {
-                    row.push(Math.round(Math.random() * 10))
+                    row.push(Math.pow(Math.round(Math.random() * 10), 2))
                 }
                 geos.push(row)
             }
